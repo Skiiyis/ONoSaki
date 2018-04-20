@@ -4,33 +4,25 @@
  * @flow
  */
 import React, {Component} from 'react';
-import {Provider} from "react-redux";
+import App from './js/main/container'
 
 type State = {
     store: any;
 };
 
-function setup() {
-    class Root extends Component {
-        state: State;
+export default class Root extends Component {
+    state: State;
 
-        constructor() {
-            super();
-            this.state = {
-                store:configureStore()
-            }
-        }
-
-        render() {
-            return (
-                <Provider store={this.state.store}>
-                    <App/>
-                </Provider>
-            );
-        }
+    constructor() {
+        super();
+        this.state = {}
     }
 
-    return Root;
+    render() {
+        return (
+            <App/>
+        );
+    }
 }
 
 
@@ -40,6 +32,4 @@ global.log = (...args) => {
     console.log('------------------------------');
     return args[args.length - 1];
 };
-
-module.exports = setup;
 

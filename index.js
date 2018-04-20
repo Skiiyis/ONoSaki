@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native';
-import setup from './main';
+import {AppRegistry} from 'react-native';
+import Steup from './main';
 
-AppRegistry.registerComponent('gentleman', () => setup);
+AppRegistry.registerComponent('gentleman', () => Steup);
