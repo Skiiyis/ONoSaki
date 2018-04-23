@@ -8,11 +8,11 @@ class Container extends Component {
             <View style={styles.container}>
                 <SectionList
                     sections={[
-                        {title: 'D', data: [{name: 'david'}, {name: 'dopa'}]},
-                        {title: 'J', data: [{name: 'json'}, {name: 'jackson'}, {name: 'joye'}]}
+                        {title: 'D', data: [{key: 'david'}, {key: 'dopa'}]},
+                        {title: 'J', data: [{key: 'json'}, {key: 'jackson'}, {key: 'joye'}]}
                     ]}
                     renderItem={
-                        ({item}) => <Text style={styles.text}>{item.name}</Text>
+                        ({item}) => <Text style={styles.text}>{item.key}</Text>
                     }
                     renderSectionHeader={
                         ({section}) => <Text style={styles.button}>{section.title}</Text>
