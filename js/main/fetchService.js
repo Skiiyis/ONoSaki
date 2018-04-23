@@ -11,7 +11,7 @@ export function fetchWeather(cityName: string) {
         })
         .then((response) => response.json())
         .then((responseJson) => {
-            return responseJson.forecast;
+            console.debug(responseJson);
         })
         .catch((error) => console.error(error));
 }
