@@ -1,45 +1,24 @@
 'use strict';
 import React, {Component} from 'react';
-import {Alert, Button, CheckBox, FlatList, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Alert, SectionList, StyleSheet, Text, View} from 'react-native';
 
 class Container extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <FlatList
-                    data={[
-                        {key: "john snow"},
-                        {key: "john lanrcelot"},
-                        {key: "john joy"},
-                        {key: "john helloKetty"},
-                        {key: "john snow"},
-                        {key: "john lanrcelot"},
-                        {key: "john joy"},
-                        {key: "john helloKetty"},
-                        {key: "john snow"},
-                        {key: "john lanrcelot"},
-                        {key: "john joy"},
-                        {key: "john helloKetty"},
-                        {key: "john snow"},
-                        {key: "john lanrcelot"},
-                        {key: "john joy"},
-                        {key: "john helloKetty"},
-                        {key: "john snow"},
-                        {key: "john lanrcelot"},
-                        {key: "john joy"},
-                        {key: "john helloKetty"},
-                        {key: "john snow"},
-                        {key: "john lanrcelot"},
-                        {key: "john joy"},
-                        {key: "john helloKetty"},
-                        {key: "john snow"},
-                        {key: "john lanrcelot"},
-                        {key: "john joy"},
-                        {key: "john helloKetty"},
+                <SectionList
+                    sections={[
+                        {title: 'D', data: [{name: 'david'}, {name: 'dopa'}]},
+                        {title: 'J', data: [{name: 'json'}, {name: 'jackson'}, {name: 'joye'}]}
                     ]}
-                    renderItem={({item}) => <Text style={styles.text}>{item.key}</Text>}
+                    renderItem={
+                        ({item}) => <Text style={styles.text}>{item.name}</Text>
+                    }
+                    renderSectionHeader={
+                        ({section}) => <Text style={styles.button}>{section.title}</Text>
+                    }
                 >
-                </FlatList>
+                </SectionList>
             </View>
         );
     }
@@ -58,6 +37,7 @@ const styles = StyleSheet.create({
         width: 500,
     },
     button: {
+        padding: 20,
         color: "red",
         backgroundColor: "yellow"
     }
