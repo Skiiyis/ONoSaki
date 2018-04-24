@@ -5,6 +5,9 @@
  */
 import React, {Component} from 'react';
 import App from './js/main/container'
+import {Navigator} from "react-native-deprecated-custom-components";
+import MainScene from "./js/main/main";
+import SettingsScene from "./js/main/settings";
 
 type State = {
     store: any;
@@ -20,7 +23,19 @@ export default class Root extends Component {
 
     render() {
         return (
-            <App/>
+            <Navigator
+                initialRoute={{name: "AppScreen", title: 'my first Screen'}}
+                renderScene={(route, navigator) => {
+                    if (route.name === "MainScene") {
+                        return <MainScene navigator={navigator} route={route}/>
+                    }
+                    if (route.name === "SettingsScene") {
+                        return <SettingsScene navigator={navigator} route={route}/>
+                    }
+                    return <App navigator={navigator} route={route}/>
+                }}
+            >
+            </Navigator>
         );
     }
 }

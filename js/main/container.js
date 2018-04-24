@@ -1,36 +1,46 @@
 'use strict';
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 type State = {
     text: string;
 }
+type Props = {
+    route: any;
+    navigator: any;
+};
 
 class Container extends Component {
     state: State;
+    props: Props;
 
-    constructor() {
-        super();
+    constructor(props: Props) {
+        super(props);
         this.state = {};
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text onPress={this.fetchTest}>{this.state.text}</Text>
+                <Text style={styles.text} onPress={this.fetchTest}>{this.state.text}</Text>
+                <TouchableOpacity onPress={this.nextScreen}>
+                    <Text style={styles.text}>页面跳转</Text>
+                </TouchableOpacity>
             </View>
         );
     }
 
-    componentWillMount() {
-        this.fetchTest();
+    componentDidMount() {
+        //this.fetchTest();
     }
 
-    componentDidMount() {
+    nextScreen = () => {
+        console.log("nextScreen");
+        this.props.navigator.push({name: "MainScene", title: "my Name is MainScene"});
     }
 
     fetchTest = () => {
-        console.log(this.state.text);//1
+        console.log("fetchTest");//1
         fetch('https://www.sojson.com/open/api/weather/json.shtml?city=北京',
             {
                 method: 'GET',
