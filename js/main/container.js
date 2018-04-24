@@ -1,7 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {fetchWeather} from "./fetchService";
 
 type State = {
     text: string;
@@ -18,7 +17,7 @@ class Container extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>{this.state.text}</Text>
+                <Text onPress={this.fetchTest}>{this.state.text}</Text>
             </View>
         );
     }
@@ -28,17 +27,17 @@ class Container extends Component {
     }
 
     componentDidMount() {
-        console.debug(this.state.text);
     }
 
-    fetchTest() {
+    fetchTest = () => {
+        console.log(this.state.text);//1
         fetch('https://www.sojson.com/open/api/weather/json.shtml?city=北京',
             {
                 method: 'GET',
             })
             .then((response) => response.json())
             .then((response) => {
-                this.state.text = `北京，${response.data.wendu}度，空气质量${response.data.quality}`;
+                this.state.text = `北京，${response.data.wendu}度，空气质量${response.data.quality}，${Math.random()}`;
                 this.setState(this.state);
                 console.log(response);//1
             })
