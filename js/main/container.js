@@ -8,6 +8,7 @@ type State = {
 type Props = {
     route: any;
     navigator: any;
+    navigation: any;
 };
 
 class Container extends Component {
@@ -36,7 +37,8 @@ class Container extends Component {
 
     nextScreen = () => {
         console.log("nextScreen");
-        this.props.navigator.push({name: "MainScene", title: "my Name is MainScene"});
+        this.props.navigation.push("Main");
+        //this.props.navigator.push({name: "MainScene", title: "my Name is MainScene"});
     }
 
     fetchTest = () => {

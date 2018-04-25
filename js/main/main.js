@@ -19,7 +19,8 @@ class MainScene extends Component {
     }
 
     back = () => {
-        this.props.navigator.pop();
+        this.props.navigation.pop();
+        //this.props.navigator.pop();
     }
 }
 
