@@ -5,10 +5,14 @@
  */
 import React, {Component} from 'react';
 import App from './js/main/container'
-import {Navigator} from "react-native-deprecated-custom-components";
 import MainScene from "./js/main/main";
 import SettingsScene from "./js/main/settings";
 import {StackNavigator} from "react-navigation";
+import {applyMiddleware, createStore} from "redux";
+import thunk from "redux-thunk";
+import reducers from "./js/main/reducers";
+import {Provider} from "react-redux";
+import {createLogger} from "redux-logger";
 
 type State = {
     store: any;
@@ -34,8 +38,11 @@ export default class Root extends Component {
     }
 
     render() {
+        var store = applyMiddleware(thunk, createLogger())(createStore)(reducers);
         return (
-            <Navs/>
+            <Provider store={store}>
+                <Navs/>
+            </Provider>
             /*<Navigator
             initialRoute={{name: "AppScreen", title: 'my first Screen'}}
             renderScene={(route, navigator) => {
