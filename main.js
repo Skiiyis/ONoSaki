@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import App from './js/main/container'
 import MainScene from "./js/main/main";
 import SettingsScene from "./js/main/settings";
+import SignInScene from "./js/main/signin";
 import {StackNavigator} from "react-navigation";
 import {applyMiddleware, createStore} from "redux";
 import thunk from "redux-thunk";
@@ -22,9 +23,10 @@ const Navs = StackNavigator(
     {
         Container: {screen: App},
         Main: {screen: MainScene},
-        Settings: {screen: SettingsScene}
+        Settings: {screen: SettingsScene},
+        SignIn: {screen: SignInScene}
     }, {
-        initialRouteName: "Container",
+        initialRouteName: "SignIn",
         headerMode: "none",
     }
 );
