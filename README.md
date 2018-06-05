@@ -1,0 +1,3 @@
+
+一个ReactNative项目
+用来练手，目前在使用其学习flex布局，redusx等
